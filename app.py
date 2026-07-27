@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 from pathlib import Path
-
 import joblib
 import cv2
 import numpy as np
@@ -13,9 +12,9 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 BASE_DIR = Path(__file__).resolve().parent
-# Load Model
-model = joblib.load(BASE_DIR / "rice_ml" / "rice_ml_model.pkl")
-label_encoder = joblib.load(BASE_DIR / "rice_ml" / "label_encoder.pkl")
+
+model = joblib.load(BASE_DIR / "rice_ml_model.pkl")
+label_encoder = joblib.load(BASE_DIR / "label_encoder.pkl")
 
 
 @app.route("/")
