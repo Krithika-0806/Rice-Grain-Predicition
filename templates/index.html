@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Rice Grain Classification</title>
+
+<style>
+
+body{
+
+margin:0;
+padding:0;
+font-family:Arial;
+background:#f2f5f9;
+
+}
+
+.container{
+
+width:450px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0px 0px 15px rgba(0,0,0,.2);
+text-align:center;
+
+}
+
+h1{
+
+color:#1e88e5;
+
+}
+
+input[type=file]{
+
+margin:20px;
+
+}
+
+button{
+
+background:#1e88e5;
+color:white;
+border:none;
+padding:12px 25px;
+cursor:pointer;
+font-size:16px;
+border-radius:5px;
+
+}
+
+button:hover{
+
+background:#1565c0;
+
+}
+
+img{
+
+margin-top:20px;
+width:250px;
+border-radius:10px;
+border:2px solid #ddd;
+
+}
+
+.result{
+
+margin-top:25px;
+font-size:20px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Rice Grain Classification</h1>
+
+<form action="/predict" method="POST" enctype="multipart/form-data">
+
+<input type="file" name="image" required>
+
+<br>
+
+<button type="submit">Predict</button>
+
+</form>
+
+{% if prediction %}
+
+<div class="result">
+
+<h2>Prediction</h2>
+
+<img src="{{image}}">
+
+<p><b>Rice Type :</b> {{prediction}}</p>
+
+<p><b>Confidence :</b> {{confidence}} %</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>

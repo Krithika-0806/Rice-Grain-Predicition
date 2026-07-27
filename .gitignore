@@ -1,0 +1,8 @@
+﻿__pycache__/
+*.pyc
+*.pkl
+venv/
+.env
+static/uploads/
+Rice_Image_Dataset/
+.ipynb_checkpoints/
